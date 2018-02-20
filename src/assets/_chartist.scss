@@ -310,7 +310,7 @@ $ct-series-colors: (
     }
   
     @if $ct-include-colored-series {
-      @for $i from 0 to length($ct-series-names) {
+      @for $i from 0 to length($ct-series-names) {  
         .#{$ct-class-series}-#{nth($ct-series-names, $i + 1)} {
           $color: nth($ct-series-colors, $i + 1);
   
