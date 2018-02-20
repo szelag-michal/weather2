@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="1711 82 28 28">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="icon-wind-direction" class="cls-1" d="M406,402a14,14,0,1,0,14,14A14.041,14.041,0,0,0,406,402Zm0,24a10,10,0,1,1,10-10A10.029,10.029,0,0,1,406,426Zm-4-10a4,4,0,0,0,8,0c0-2.2-4-8-4-8S402,413.8,402,416Zm5,0a1,1,0,1,1-1-1A1,1,0,0,1,407,416Z" transform="translate(1319 -320)"/>
+</svg>
