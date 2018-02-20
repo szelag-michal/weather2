@@ -12,6 +12,7 @@ import moment from 'moment'
 
 export const store = new Vuex.Store({
   state: {
+    name: '560743',
     location: '',
     chartistTarget: '',
     forecastData: '',
@@ -26,7 +27,7 @@ export const store = new Vuex.Store({
       options: {
           fullWidth: true,
           chartPadding: {
-              right: 40
+              right: 0
           }
       },
   },
@@ -62,8 +63,8 @@ export const store = new Vuex.Store({
     renderChart({commit}, context) {
       commit('setChart', {context})
     },
-    getLocation ({ commit }) {
-      const url = `${API_URL}location/560743/`    
+    getLocation ({ commit }, name) {
+      const url = `${API_URL}location/${name}/`    
       axios.get(url)
         .then(response => commit('setLocation', { 
           locations: response.data,

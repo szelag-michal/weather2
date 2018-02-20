@@ -34,16 +34,17 @@
                 <div class="box-value">{{Math.round(loc.predictability)}} <small class="value-unit">%</small>    </div>
                 <div class="box-label">predictability</div>
               </div>
-               <div class="box">
-                <div class="box-icon"><span class="icon icon-sunset"></span></div>
-                <div class="box-value">{{location.sun_set | date}} <small class="value-unit">{{location.timezone_name}}</small>    </div>
-                <div class="box-label">Sunset</div>
-              </div>
               <div class="box">
                 <div class="box-icon"><span class="icon icon-sunrise"></span></div>
-                <div class="box-value">{{location.sun_rise | date}} <small class="value-unit">{{location.timezone_name}}</small>    </div>
+                <div class="box-value">{{location.sun_rise | date}}AM <small class="value-unit">{{location.timezone_name}}</small>    </div>
                 <div class="box-label">Sunrise</div>
               </div>
+               <div class="box">
+                <div class="box-icon"><span class="icon icon-sunset"></span></div>
+                <div class="box-value">{{location.sun_set | date}}PM <small class="value-unit">{{location.timezone_name}}</small>    </div>
+                <div class="box-label">Sunset</div>
+              </div>
+              
               
               </div>
            </div>
@@ -76,7 +77,7 @@ export default {
     ])
   },
   created() {
-    this.$store.dispatch('getLocation')
+    this.$store.dispatch('getLocation', this.$store.state.name)
   },
   mounted() { 
     
@@ -103,9 +104,8 @@ body {background: #2A343E;color: #eee;}
 .box-main {font-size: 3em;width: 100%;}
 .box-label {font-size: .6em;font-weight: bold;text-transform: uppercase;}
 .box-value small {font-size: .7em;}
-.boxes .box {width: 33.3333%;border-bottom: solid 1px rgba(#fff,.1);border-right: solid 1px rgba(#fff,.1)}
-.boxes .box:nth-child(-n+3) {border-top:solid 1px rgba(#fff,.1);}
-.boxes .box:nth-child(3n-2) {border-left: solid 1px rgba(#fff,.1);}
+.boxes .box {background: darken(#2A343E,5);width: calc(33.3333% - 2px);margin-bottom: 1px; margin-left:1px}
+.boxes .box:nth-child(3n-2) {}
     
     .icon {display: inline-block;;width: 2.5em;height: 2.5em;background-size:100%;background-repeat: no-repeat;background-position: center center;}
     .icon-sn {background-image: url('./assets/img/icon-sn.svg');}
