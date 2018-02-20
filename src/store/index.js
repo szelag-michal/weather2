@@ -13,6 +13,7 @@ import moment from 'moment'
 export const store = new Vuex.Store({
   state: {
     location: '',
+    chartistTarget: '',
     forecastData: '',
     forecastLabels: '',
     chartist: '',
@@ -34,8 +35,8 @@ export const store = new Vuex.Store({
     chartist: state => state.chartist
   },
   mutations: {
-    setLocation (state, { locations, forecast }) {
-      state.location = locations;
+    setLocation (state, {forecast }) {
+      state.location = forecast;
       state.forecastData = forecast.consolidated_weather.map(item => {
         return Number(Math.round(item['the_temp']))
       });
@@ -47,9 +48,12 @@ export const store = new Vuex.Store({
       state.data.series.push(state.forecastData);
       state.data.labels.push(state.forecastLabels);
 
+      console.log(state.data.series);
+      console.log(state.data.labels)
+
       
     },
-    setChart(state, {context, payload}) {
+    setChart(state, {context}) {
       state.chartist = new Chartist['Line'](context, state.data, state.options, state.responsiveOptions)
       
     }
